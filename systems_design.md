@@ -4,6 +4,10 @@
 
 I chose a collection of out-of-the-box frameworks to design this metrics system. 
 
+## Overview
+
+<img src="img/system_blocks_and_notes.png" width="1000px">
+
 ### Collection Service
 
 This is a good use case for Kafka since it guarantees message ordering-- that is, messages will be stored in the log in the same order that they are produced. In addition, Kafka is highly scalable and fault tollerent since each Topic is partitioned by message key. Kafka self manages partition replication based on configuration settings, and handles leader election in case of failure. The size of each log is only limited by the memory of the machine it lives on. Kafka's pub-sub model also introduces consumer groups which allows for distributed processing of messages.
@@ -62,9 +66,5 @@ CREATE TABLE query_service.app_metrics (
 ```
 
 Additionally, I introduced a cache layer to live in between the endpoint and Cassandra to speed up response times. 
-
-## Illustration
-
-<img src="img/system_blocks_and_notes.png" width="1000px">
 
 

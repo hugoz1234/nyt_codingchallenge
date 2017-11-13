@@ -45,7 +45,7 @@ Out-of-the-box Kafka is well designed for high throughput systems. Some benchmar
 
 However, increasing utilization enough would create a backlog of messages on the application machines. Further governance of Kafka would address this issue, particularly splitting out traffic to additional topics. Since topics are an abstraction of write-ahead logs, we'd be able to handle more writes/reads. This would also require changes to the Spark code. 
 
-###Query Service
+### Query Service
 
 I chose Cassandra because it is write optimized and highly scalable, skewing AP of the CAP theorem. It guarantees eventual consistency which would be reasonable given the system specification. Below is the table schema:
 ```
@@ -65,6 +65,6 @@ Additionally, I introduced a cache layer to live in between the endpoint and Cas
 
 ## Illustration
 
-<img src="img/sytem_blocks_and_notes.png" width="1000px">
+<img src="img/system_blocks_and_notes.png" width="1000px">
 
 

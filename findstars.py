@@ -5,8 +5,8 @@ import sys
 
 """Problem 2: Quickly compute k closest points points to arbitrary point (No Memory constraints)
 	
-	Given this scenario, I would develop a batch approach that pre-calculated the solution for a 
-	set of coordinates and then mapping the input to the most accurate, stored solution. Each 
+	Given this specification, I would develop a batch approach that pre-calculated the solution for 
+	a set of coordinates and then mapping the input to the most accurate, stored solution. Each 
 	precomputed coordinate would store a sorted list of all stars. Each call to a coordinate would
 	return the desired k stars.
 	This would return an answer in constant time since it only require a single table look up. If we
@@ -23,7 +23,8 @@ import sys
 	(2) Approximate answers example
 		- Of the 9 significant figures with which we model a star, we only store solutions for up to
 		the first 6 digits (xxx.xxx). An input coordinate would be rounded up or down to the closest
-		precomputed coordinate. In this example we reduce our stored entries to 5 * 10**17 entries
+		precomputed coordinate. In this example we reduce our stored entries to about 5 * 10**17 
+		entries
 	
 """
 

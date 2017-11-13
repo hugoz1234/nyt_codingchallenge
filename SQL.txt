@@ -1,0 +1,16 @@
+/*** SQL ***/
+SELECT customers.name, MAX(orders.order_date) 
+FROM customers JOIN orders ON customers.customer_id=orders.customer_id
+GROUP BY customers.name;
+
+
+
+SELECT customers.name, SummedOrders.order_date, MAX(SummedOrders.TotalQuantity - SummedOrdersAux.TotalQuantity)
+FROM customers
+JOIN (SELECT orders.customer_id, orders.order_date, SUM(quantity) as TotalQuantity
+	  FROM orders
+	  GROUP BY orders.customer_id, orders.order_date) AS SummedOrders ON customers.customer_id=SummedOrders.customer_id
+LEFT JOIN SummedOrders as SummedOrdersAux
+ON SummedOrders.customer_id=SummedOrdersAux.customer_id
+WHERE SummedOrders.TotalQuantity IS NOT NULL
+ORDER BY customers.name;
